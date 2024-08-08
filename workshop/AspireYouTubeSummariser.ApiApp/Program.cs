@@ -14,7 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
 
 builder.Services.AddHttpClient<IYouTubeVideo, YouTubeVideo>();
-builder.Services.AddScoped<AzureOpenAIClient>(sp =>
+builder.Services.AddScoped<OpenAIClient>(sp =>
 {
     var config = sp.GetRequiredService<IConfiguration>();
     var endpoint = new Uri(config["OpenAI:Endpoint"]);
